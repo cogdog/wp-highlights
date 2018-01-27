@@ -117,6 +117,7 @@ With the Font Awesome icons, you can add any site you wish to be in your footer 
 
 ![](images/with-social-media-icons.jpg "")
 
+
 ## Editing Content
 
 The content for the blocks are managed as Wordpress Posts.  For each block you want create a post. If you want the animated style with a large background image, add a Featured image that is at least 1028 x 768 px in size- big beautiful images. 
@@ -158,6 +159,11 @@ If you were to enter the single post by it's URL, you would see the site header,
 You can also create stand alone content that is not part of the scrolling front if you use Pages. The format is similar to single posts, the top of the page uses the site header/background and page title, and a button that jumps down to the page content. See
 
 http://lab.cogdogblog.com/highlights/else/
+
+## Got Styles?
+
+Yep. The styles of the HTML5up theme are available; [see the demo site for examples](http://lab.cogdogblog.com/highlights/styles/). It might require some HTML editing to setup and/or maybe use of CSS classes.
+
 
 ## Uh Oh, Room 404
 
