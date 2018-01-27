@@ -56,7 +56,7 @@ The main elements are set and previewed in `Appearance` -> `Customize`
 Under `Site Identity` edit the title that shows up in the footer as well as an optional description of the site as a tagline.
 
 
-![](images/customize-highlights-site-identity "Edit Site Identity to update the footer")
+![](images/customize-highlights-site-identity.jpg "Edit Site Identity to update the footer")
 
 
 
@@ -115,7 +115,7 @@ With the Font Awesome icons, you can add any site you wish to be in your footer 
 
 **Save** your menu and check out the spiffy icons in the footer.
 
-![](images/with-social-media-icons "")
+![](images/with-social-media-icons.jpg "")
 
 ## Editing Content
 
@@ -143,7 +143,7 @@ In the Wordpress editor, find the place in your post where you want this split t
 
 When an `Read More` has been added to a post, on the front of your site, only the portion above the line is visible, and a **more...** link is added.
 
-![](images/single-top.jpg "More link appears on front of site")
+![](images/highlights-more.jpg "More link appears on front of site")
 
 Following the link leads to a single post view that will open to the part of the post below the `Read More` marker, the featured image in the background
 
