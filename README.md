@@ -27,6 +27,7 @@ Highlights works best for smaller amounts of content in each section, it's meant
 ## Examples
 
 * First version http://lab.cogdogblog.com/highlights/
+* Recommended APA Resources http://apa.nursekillam.com/
 
 ## Installing from Scratch
 
