@@ -1,5 +1,13 @@
 # HTML5 Up Highlights Theme for Wordpress
 
+-----
+*If this kind of stuff has any value to you, please consider supporting me so I can do more!*
+
+[![Support me on Patreon](http://cogdog.github.io/images/badge-patreon.png)](https://patreon.com/cogdog) [![Support me on via PayPal](http://cogdog.github.io/images/badge-paypal.png)](https://paypal.me/cogdog)
+
+----- 
+
+
 A configurable Wordpress Theme version of [HTML5up Highlights Theme](https://html5up.net/highlights) made for the internet by [@cogdog](http://cog.dog). It creates a simple, elegant calling card something that looks like
 
 ![Screenshot of Theme](screenshot.png "Screenshot of Theme")
