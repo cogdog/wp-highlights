@@ -2337,7 +2337,7 @@
 				display: inline-block;
 				padding: 0 1em 0 0;
 				vertical-align: middle;
-			}
+			}			
 
 				ul.actions li:last-child {
 					padding-right: 0;
@@ -3068,8 +3068,7 @@
 				}
 
 	}
-	
-	
+		
 	.fontawesome-text {
     	display: none;
 	}
@@ -3082,4 +3081,8 @@
 		border: none;
 		padding: 0 0.01em;
 	}	
+		
+	ul.actions li span {
+		font-size: 2rem;
+	}			
 	
