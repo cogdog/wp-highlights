@@ -34,8 +34,24 @@ Highlights works best for smaller amounts of content in each section, it's meant
 
 ## Examples
 
-* First version http://lab.cogdogblog.com/highlights/
-* Recommended APA Resources http://apa.nursekillam.com/
+* Center for Transitional Learning (Lansing Community College) https://ctl.openlcc.net/
+* Cup of Teaching (Kim Carter) https://cupofteaching.ca/
+* Jane Van Galen http://janevangalen.com/
+* Theme demo version http://lab.cogdogblog.com/highlights/
+* Recommended APA Resources (Laura Killam) http://apa.nursekillam.com/
+
+
+## Installing From Reclaim Hosting
+
+If you are wise enough to host your web sites at [Reclaim Hosting](http://reclaimhosting.com/) you have the option of installing a fully functioning site with this theme ([a copy of the demo site](http://lab.cogdogblog.com/highlights/)) including recommended plugins, configured settings and sample content, all done  in one click. *But wait there is more!* With this method of installing your site, future updates to the theme are automatically added to your site.
+
+In your cpanel, under **Applications** go to **All Applications**. This theme is available listed under Fratured Applications; just install from there.
+
+![](images/reclaim-featured.jpg "Reclaim Hosting Featured Applications")
+
+*Note that unlike other WordPress installs, this one will not preserve your username/password, so be sure to save that information.* When it's done, log into your new site and start making it your own. 
+
+
 
 ## Installing from Scratch
 
@@ -200,15 +216,7 @@ http://lab.cogdogblog.com/highlights/whereami
 * [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/) If you change to this theme from another one, you should run this plug to re-generate previously uploaded images in the specific sizes used by the theme.
 
 
-## Features / History
-
-* v0.1 (Jan  28, 2018)  First release, for the brave, the few, the daring. You?
-
-### Requests
-
-* *You tell me* Fork and edit to suggest features or [toss them into the Issues bin](https://github.com/cogdog/wp-bigpicture/issues)
-
-### Credits
+## Credits
 
 * **Default backdrop image** "What a View" flickr photo by cogdogblog https://flickr.com/photos/cogdog/344384584 into the public domain using [Creative Commons Public Domain Dedication (CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 

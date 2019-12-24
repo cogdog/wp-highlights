@@ -127,28 +127,31 @@ function highlights_columns($columns) {
 function highlights_scripts() {
 
 	// Big Picture CSS
-	wp_register_style( 'highlights-style', get_stylesheet_directory_uri() . '/assets/css/main.css' );
+	wp_register_style( 'highlights-style', get_template_directory_uri() . '/assets/css/main.css' );
 	wp_enqueue_style( 'highlights-style' );
 
+	// big pictuer wordpress  CSS
+	wp_register_style( 'highlights-style-wp', get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'highlights-style-wp' );	
 
 
 	// scrolly jquery down in the footer you go
-	wp_register_script( 'highlights-scrollex' , get_stylesheet_directory_uri() . '/assets/js/jquery.scrollex.min.js', array( 'jquery' ), false, true );
+	wp_register_script( 'highlights-scrollex' , get_template_directory_uri() . '/assets/js/jquery.scrollex.min.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'highlights-scrollex' );
 
 	// scrolly jquery down in the footer you go
-	wp_register_script( 'highlights-scrolly' , get_stylesheet_directory_uri() . '/assets/js/jquery.scrolly.min.js', array( 'jquery' ), false, true );
+	wp_register_script( 'highlights-scrolly' , get_template_directory_uri() . '/assets/js/jquery.scrolly.min.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'highlights-scrolly' );
 	
 	// custom jquery down in the footer you go
-	wp_register_script( 'highlights-skel' , get_stylesheet_directory_uri() . '/assets/js/skel.min.js', array( 'jquery' ), false, true );
+	wp_register_script( 'highlights-skel' , get_template_directory_uri() . '/assets/js/skel.min.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'highlights-skel' );
 	
-	wp_register_script( 'highlights-util' , get_stylesheet_directory_uri() . '/assets/js/util.js', array( 'jquery' ), false, true );
+	wp_register_script( 'highlights-util' , get_template_directory_uri() . '/assets/js/util.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'highlights-util' );
 
 
-	wp_register_script( 'highlights-main' , get_stylesheet_directory_uri() . '/assets/js/main.js', array( 'jquery' ), false, true );
+	wp_register_script( 'highlights-main' , get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'highlights-main' );
 	
 }
@@ -165,6 +168,12 @@ function highlights_register_theme_customizer( $wp_customize ) {
 	// Create custom panel.
 
 
+	// Add section for header
+	$wp_customize->add_section( 'intro_stuff' , array(
+		'title'    => __('Highlights Mods','highlights'),
+		'priority' => 25
+	) );
+	
 	// Add setting for header
 	$wp_customize->add_setting( 'intro_header_text', array(
 		 'default'           => __( 'My Highlights', 'highlights' ),
@@ -184,10 +193,9 @@ function highlights_register_theme_customizer( $wp_customize ) {
 	    )
 	);
 
-
 	// Add setting for front text
 	$wp_customize->add_setting( 'intro_blurb_content', array(
-		 'default'           => __( 'I am a compelling blob of text to put below the big name at the top. Just <em>basic</em> <strong>HTML</strong> is okay here.<br />Linebreaks and <a href="https://cog.dog/">links to cool stuff</a> are good too.', 'highlights' ),
+		 'default'           => __( 'This is the exciting tag line you <strong>might</strong> customize!', 'highlights' ),
 		 'sanitize_callback' => 'highlights_sanitize_html'
 	) );
 	// Add control for front text
@@ -222,11 +230,7 @@ function highlights_register_theme_customizer( $wp_customize ) {
 	);
 
 
-	// Add section for header
-	$wp_customize->add_section( 'intro_stuff' , array(
-		'title'    => __('Highlights Mods','highlights'),
-		'priority' => 500
-	) );
+
 	
 	
  	// Sanitize text
@@ -285,7 +289,7 @@ function highlights_footer_text() {
 
 
 // Load plugin requirements file to display admin notices.
-require get_stylesheet_directory() . '/includes/splot-plugins.php';
+require get_template_directory() . '/includes/splot-plugins.php';
 
 
 ?>

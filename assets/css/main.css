@@ -3067,22 +3067,5 @@
 					padding: 0;
 				}
 
-	}
-		
-	.fontawesome-text {
-    	display: none;
-	}
-	
-	#footer .fa {
-    	font-size: 3em;
-	}
-
-	#footer ul.actions a {
-		border: none;
-		padding: 0 0.01em;
-	}	
-		
-	ul.actions li span {
-		font-size: 2rem;
-	}			
+	}		
 	
