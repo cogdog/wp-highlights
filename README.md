@@ -34,8 +34,9 @@ Highlights works best for smaller amounts of content in each section, it's meant
 
 ## Examples
 
-* Center for Transitional Learning (Lansing Community College) https://ctl.openlcc.net/
+* Open Learning Lab Publications (Lansing Community College) https://ctl.openlcc.net/
 * Cup of Teaching (Kim Carter) https://cupofteaching.ca/
+* GJS Health https://gjshealth.suadcobo.com/
 * Jane Van Galen http://janevangalen.com/
 * Theme demo version http://lab.cogdogblog.com/highlights/
 * Recommended APA Resources (Laura Killam) http://apa.nursekillam.com/
