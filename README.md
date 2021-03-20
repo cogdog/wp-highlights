@@ -14,11 +14,13 @@ A configurable Wordpress Theme version of [HTML5up Highlights Theme](https://htm
 
 You can see a demo version at http://lab.cogdogblog.com/highlights/
 
-For simple content, this can be a one page site, but use of the Wordpress `more` tag allows for longer content on a single page template, while what is above the tag appears on the home page of the site. 
+For simple content, this can be a one page site, but use of the Wordpress `more` tag allows for longer content on a single post template. The content before the  `more` tag appears  on the home page of the site and a more button is inserted to read "the rest of the story."
+
+You also can have [standalone single pages](http://lab.cogdogblog.com/highlights/else/) available for linking into.
 
 The top/splash screen is configured in the Wordpress Customizer. The backdrop image is managed by the **Header Background** controls in the Customizer, which means you have an option of loading several images that can be set to appear at random on page load.
 
-Subsequent sections as you scroll down (or use the automatic generated menu) are managed as separate posts. If the post has a featured image, on a wide screen the background image will change to it. As the page is scrolled farther, these images continue to change.
+Subsequent sections as you scroll down (or use the automatic generated menu) are managed as separate WordPress Posts. If the post has a featured image, on a wide screen the background image will change to it. As the page is scrolled farther, these images continue to change.
 
 Posts without featured images use the default theme header image in the background.
 
@@ -27,7 +29,7 @@ Posts without featured images use the default theme header image in the backgrou
 
 Each front section provides bottom arrow navigation to the next section as well as an `edit this` link for logged in users so they can directly edit the content.
 
-The bottom footer can be customized with a social media icon menu and a custom footer menu text.
+The bottom footer can be customized with a social media icon menu using [Font Awesome 5 icons with my other plugin](https://github.com/cogdog/font-awesome-5-menus) and a custom footer menu text.
 
 Highlights works best for smaller amounts of content in each section, it's meant for high level summaries, and you can use hypertext links to expand to other sites. But still, some people want a lot of content in this site, so a features was added to mark the opening bits of a post to appear on the front, with a link to see expanded content in a single page ([see below for more](#splitting-content-into-see-more)).
 
@@ -70,8 +72,6 @@ As of WordPress version 5.5 themes uploaded as .ZIP files can now be updated the
 
 If you have ftp/sftp access to your site (or this can be done in a cpanel file manager), simply upload the new theme files to the `wp-content/themes` directory that includes the older version theme. 
 
-For those that lack direct file upload access or maybe that idea sends shivers down the spine, upload and activate the [Easy Theme and Plugin Upgrades](https://wordpress.org/plugins/easy-theme-and-plugin-upgrades/) plugin -- this will allow you to upload a newer version of a theme as a ZIP archive, the same way you add a theme by uploading.
-
 
 ## Customizing with the Customizer
 
@@ -100,7 +100,7 @@ With the **Header image** controller you can upload more than one image, and use
 
 ### Highlights Mod Content
 
-Other parts of the top of the home page and and the footer are also configured in the Customizer. Change the title and the blurb content (which can include HTML):
+Other parts of the top of the home page and and the footer are also configured in the Customizer. To include more items on the front, just bump the number listed for Maximum Number of sections (this defines how many "posts" are listed). Change the title and the blurb content (which can include HTML):
 
 ![](images/customize-highlights-mods-top.jpg "Top Section in the Customizer")
 
@@ -159,9 +159,9 @@ The content for the blocks are managed as Wordpress Posts.  For each block you w
 
 ![](images/highlights-post-edit.jpg "Sidebar edits")
 
-The order of the sections is controlled via the post sidebar **Post Attributes** option for... **Order**, lower numbers are displayed higher in the site.
+The order of the sections is controlled via the post sidebar **Post Attributes** option for... **Section Order**, lower numbers are displayed higher in the site.
 
-The site now accommodates up to 10 sections.
+By default a site  accommodates up to 10 sections, but this maximum number can be changed in the Customizer.
 
 The Dashboard Posts view will list your sections in the order specified. To change the order quickly, hover a title and use the **Quick Edit** link to change the value of the order attribute.
 
@@ -205,16 +205,15 @@ There won't be a great deal of content on a typical site, and to cover a case of
 
 ![](images/room-404.jpg "404 error page")
 
-Try it now!
+Try finding room 404!
 
 http://lab.cogdogblog.com/highlights/whereami
 
 
 ## Suggested Plugins
 
-* [Font Awesome 4 Menus](https://wordpress.org/plugins/font-awesome-4-menus/) used to add the  icons to the social media links in the footer
-* [Fluid Video Embeds](https://wordpress.org/plugins/fluid-video-embeds/) will make sure your auto embedded videos (and other content wordpress can embed by URL) are responsive sized to fill the column width
-* [Easy Theme and Plugin Upgrades](https://wordpress.org/plugins/easy-theme-and-plugin-upgrades/) allows you yo update the theme by uploading the zip file again as a new server (because wordpress does not provide this capability)
+* [Font Awesome 5 icons with my other plugin](https://github.com/cogdog/font-awesome-5-menus) used to add the  icons to the social media links in the footer
+* [Fluid Video Embeds](https://wordpress.org/plugins/fluid-video-embeds/) will make sure your auto embedded videos (and other content wordpress can embed by URL) are responsively sized to fill the column width (if your content column seems to shimmy around on a small screen it's likely a video that is too wide to fit.
 * [JetPack](https://wordpress.org/plugins/jetpack/) can add a number of capabilities, such as adding a contact form or a variety of other image galleries (try Mosaic). If you do [create a contact form](https://jetpack.com/support/contact-form/), make sure you also add and activate [Akismet](http://akismet.com/) because *you will get spam*
 * [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/) If you change to this theme from another one, you should run this plug to re-generate previously uploaded images in the specific sizes used by the theme.
 
