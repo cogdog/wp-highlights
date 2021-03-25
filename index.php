@@ -1,35 +1,35 @@
-<?php 
+<?php
 
-	get_header(); 
-	
+	get_header();
+
 	// store custom CSS for backgrounds
 	$section_css = '';
 
 	// custom query for posts listed by menu order
-	
+
 	$the_query = new WP_Query(array(
-		'post_type' => 'post', 
-		'post_status' => 'publish', 
-		'orderby' => 'menu_order', 
+		'post_type' => 'post',
+		'post_status' => 'publish',
+		'orderby' => 'menu_order',
 		'order' => 'ASC',
-		'posts_per_page' => 10,
+		'posts_per_page' => get_highlights_section_max(),
 	) );
 
 	// First Loop for the nav and extra CSS
 	if ( $the_query->have_posts() ) {
 		while ( $the_query->have_posts() ) {
-		
+
 			$the_query->the_post();
-			
+
 			// make unique div ids, stash in array
 			$my_id = 'post' . get_the_id();
 			$the_divs[] = $my_id;
-				
-		} // while 
-		
+
+		} // while
+
 		// rewind so we can reuse for the content
 		$the_query->rewind_posts();
-		
+
 	} // $the_query->have_posts()
 	?>
 
@@ -49,15 +49,15 @@
 <?php // Second Loop for the stuff to display
 
 if ( $the_query->have_posts() ) {
-	
+
 	$section_count = -1; // keep the count
 
 	while ( $the_query->have_posts() ) {
 		$the_query->the_post();
-					
+
 			// bump count
 			$section_count++;
-			
+
 			// what's next?
 			$next_section = $section_count + 1;
 			?>
@@ -68,32 +68,32 @@ if ( $the_query->have_posts() ) {
 						<header class="major">
 							<h2><?php the_title(); ?></h2>
 						</header>
-						
+
 						<p><?php the_content( 'more...' );?></p>
-						
+
 						<?php edit_post_link('Edit This', '<p class="edit-this"><span class="fa fa-pencil-square-o" aria-hidden="true"></span> ', '</p>');?>
 					</div>
-							
+
 				<!-- section navigation -->
-				
+
 				<?php if ( $section_count == count($the_divs) - 1 ) :?>
-				
+
 					<div class="morebutton">
 						<a class="button special icon fa-chevron-up" href="#top">TOP</a>
 					</div>';
-					
-					
-					
-					 
+
+
+
+
 				<?php else:?>
 					<a href="#<?php echo $the_divs[$next_section]?>" class="goto-next scrolly">Next</a>
-					
+
 				<?php endif?>
 				</div>
-			</section>	
+			</section>
 		<?php
 		} // while $the_query->have_posts()
-	} // if $the_query->have_posts() 
+	} // if $the_query->have_posts()
 	?>
-	
+
 <?php get_footer(); ?>

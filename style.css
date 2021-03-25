@@ -3,7 +3,7 @@ Theme Name: WP Highlights
 Theme URI: http://github.com/cogdog/wp-bigpicture
 Author: Alan Levine
 Author URI: http://cog.dog
-Version: 1.2
+Version: 1.31
 Description: A  calling card site, based on HTML5 UP theme Highlights by HTML5 UP
 License: Free for personal and commercial use under the CCA 3.0 license
 License URI: http://html5up.net/license
@@ -23,8 +23,13 @@ License URI: http://html5up.net/license
 #footer ul.actions a {
 	border: none;
 	padding: 0 0.01em;
-}	
-	
+}
+
 ul.actions li span {
 	font-size: 2rem;
-}	
+}
+
+.wp-block-image img {
+    max-width: 100%;
+    height: auto;
+}

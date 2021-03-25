@@ -1,8 +1,8 @@
 <?php
 /* Functions and stuff for the WP-Highlights theme
-   
+
    Based on HTML5up html5up.net
-   
+
    mods by and blame go to http://cog.dog
 */
 
@@ -11,9 +11,9 @@
 add_action( 'after_setup_theme', 'highlights_setup' );
 function highlights_setup() {
    add_theme_support( 'title-tag' );
-   
+
    // give us thumbnails
-	add_theme_support( 'post-thumbnails' ); 
+	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 1024, 768, true );
 
 	// give us custom headers (used for background of intro section)
@@ -32,7 +32,7 @@ function highlights_setup() {
 
 function highlights_modify_read_more_link() {
     return '<div class="morebutton"><a class="button special icon fa-share-square-o " href="' . get_permalink() . '#more">MORE...</a></div>';
-    
+
 }
 
 add_filter( 'the_content_more_link', 'highlights_modify_read_more_link' );
@@ -42,6 +42,62 @@ add_action( 'init', 'highlights_register_my_menu' );
 
 function highlights_register_my_menu() {
 	register_nav_menu( 'highlights-social', __( 'Social Media' ) );
+}
+
+// --------- rebrand posts ---------------------------------------------------------------
+
+// change the name of admin menu items from "Posts" to be "Sections"
+// -- h/t https://wordpress.stackexchange.com/a/9224/14945
+
+// change the prompts and stuff for posts to be relevant to Sections
+
+add_action( 'init', 'highlights_change_post_object' );
+
+function highlights_change_post_object() {
+
+    $thing_name = 'Section';
+
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name =  $thing_name . 's';
+    $labels->singular_name =  $thing_name;
+    $labels->add_new = 'Add ' . $thing_name;
+    $labels->add_new_item = 'Add ' . $thing_name;
+    $labels->edit_item = 'Edit ' . $thing_name;
+    $labels->new_item =  $thing_name;
+    $labels->view_item = 'View ' . $thing_name;
+    $labels->search_items = 'Search ' . $thing_name;
+    $labels->not_found = 'No ' . $thing_name . ' found';
+    $labels->not_found_in_trash = 'No ' .  $thing_name . ' found in Trash';
+    $labels->all_items = 'All ' . $thing_name . 's';
+    $labels->menu_name =  $thing_name . 's';
+    $labels->name_admin_bar =  $thing_name;
+    $labels->attributes = $thing_name . ' Properties';
+}
+
+// edit the post editing admin messages to reflect use of Sections
+// h/t http://www.joanmiquelviade.com/how-to-change-the-wordpress-post-updated-messages-of-the-edit-screen/
+
+
+add_filter( 'post_updated_messages', 'highlights_post_updated_messages', 10, 1 );
+
+function highlights_post_updated_messages ( $msg ) {
+    $msg[ 'post' ] = array (
+     0 => '', // Unused. Messages start at index 1.
+	 1 => "Section updated.",
+	 2 => 'Custom field updated.',  // Probably better do not touch
+	 3 => 'Custom field deleted.',  // Probably better do not touch
+
+	 4 => "Section updated.",
+	 5 => "Section restored to revision",
+	 6 => "Section published.",
+
+	 7 => "Section saved.",
+	 8 => "Section submitted.",
+	 9 => "Section scheduled.",
+	10 => "Section draft updated.",
+    );
+    return $msg;
 }
 
 
@@ -74,10 +130,10 @@ add_action('manage_posts_custom_column',  'highlights_columns_show_columns');
 
 // h/t http://wordpress.stackexchange.com/questions/66455/how-to-change-order-of-posts-in-admin
 function custom_post_order($query){
-    /* 
+    /*
         Set post types.
-        _builtin => true returns WordPress default post types. 
-        _builtin => false returns custom registered post types. 
+        _builtin => true returns WordPress default post types.
+        _builtin => false returns custom registered post types.
     */
     $post_types = get_post_types(array('_builtin' => true), 'names');
     /* The current post type. */
@@ -107,16 +163,16 @@ add_filter('manage_posts_columns', 'highlights_columns');
 
 function highlights_columns($columns) {
 
-	$highlights_columns = array(); 
+	$highlights_columns = array();
 
-	foreach( $columns as $key => $value) { 
-		
-		if ( $key != 'date' and $key != 'categories' ) $highlights_columns[$key] = $value; 
-		if ( $key== 'title' ) { 
-			$highlights_columns['order'] = ' Box Order';
-		} 
+	foreach( $columns as $key => $value) {
+
+		if ( $key != 'date' and $key != 'categories' ) $highlights_columns[$key] = $value;
+		if ( $key== 'title' ) {
+			$highlights_columns['order'] = ' Section Order';
+		}
 	}
-	
+
     return $highlights_columns;
 }
 
@@ -132,7 +188,7 @@ function highlights_scripts() {
 
 	// big pictuer wordpress  CSS
 	wp_register_style( 'highlights-style-wp', get_template_directory_uri() . '/style.css' );
-	wp_enqueue_style( 'highlights-style-wp' );	
+	wp_enqueue_style( 'highlights-style-wp' );
 
 
 	// scrolly jquery down in the footer you go
@@ -142,18 +198,18 @@ function highlights_scripts() {
 	// scrolly jquery down in the footer you go
 	wp_register_script( 'highlights-scrolly' , get_template_directory_uri() . '/assets/js/jquery.scrolly.min.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'highlights-scrolly' );
-	
+
 	// custom jquery down in the footer you go
 	wp_register_script( 'highlights-skel' , get_template_directory_uri() . '/assets/js/skel.min.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'highlights-skel' );
-	
+
 	wp_register_script( 'highlights-util' , get_template_directory_uri() . '/assets/js/util.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'highlights-util' );
 
 
 	wp_register_script( 'highlights-main' , get_template_directory_uri() . '/assets/js/main.js', array( 'jquery' ), false, true );
 	wp_enqueue_script( 'highlights-main' );
-	
+
 }
 
 add_action( 'wp_enqueue_scripts', 'highlights_scripts' );
@@ -170,10 +226,36 @@ function highlights_register_theme_customizer( $wp_customize ) {
 
 	// Add section for header
 	$wp_customize->add_section( 'intro_stuff' , array(
-		'title'    => __('Highlights Mods','highlights'),
+		'title'    => __('WP Highlights Mods','highlights'),
 		'priority' => 25
 	) );
-	
+
+
+	// Add setting for header
+	$wp_customize->add_setting( 'section_max', array(
+		 'default'           => __( '10', 'highlights' ),
+	) );
+
+	// Add control for quote
+	$wp_customize->add_control( new WP_Customize_Control(
+	    $wp_customize,
+		'section_max',
+		    array(
+		        'label'    => __( 'Maximum Number Sections', 'highlights' ),
+		        'description' => __( 'Set the total number of allowed items on front page', 'highlights'  ),
+		        'section'  => 'intro_stuff',
+		        'settings' => 'section_max',
+		        'type'     => 'number',
+		        'input_attrs' => array(
+    '				min' => 1,
+   				   'max' => 20,
+                   'step' => 1,
+  				),
+
+		    )
+	    )
+	);
+
 	// Add setting for header
 	$wp_customize->add_setting( 'intro_header_text', array(
 		 'default'           => __( 'My Highlights', 'highlights' ),
@@ -209,7 +291,7 @@ function highlights_register_theme_customizer( $wp_customize ) {
 		        'type'     => 'textarea'
 		    )
 	    )
-	);	
+	);
 
 	// Add setting for footer
 	$wp_customize->add_setting( 'footer_text_block', array(
@@ -231,13 +313,13 @@ function highlights_register_theme_customizer( $wp_customize ) {
 
 
 
-	
-	
+
+
  	// Sanitize text
 	function sanitize_text( $text ) {
 	    return sanitize_text_field( $text );
 	}
-	
+
 	// convert string to a slug-worthy one
 	function slug_text ( $text ) {
 		 return sanitize_title( $text );
@@ -245,7 +327,7 @@ function highlights_register_theme_customizer( $wp_customize ) {
 
  	// Allow just some html
 	function highlights_sanitize_html( $value ) {
-	
+
 		$allowed_html = [
 			'a'      => [
 				'href'  => [],
@@ -257,8 +339,18 @@ function highlights_register_theme_customizer( $wp_customize ) {
 		];
 
 		return  wp_kses( $value, $allowed_html );
-	}	
-	
+	}
+
+}
+
+
+function get_highlights_section_max() {
+
+	 if ( get_theme_mod( 'section_max') ) {
+	 	return get_theme_mod( 'section_max' );
+	 }	else {
+	 	return 10;
+	 }
 }
 
 function highlights_intro_header() {
